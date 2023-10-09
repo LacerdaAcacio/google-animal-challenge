@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { SearchCardProps } from "../../../types/PropsData";
 import { CardContent, CardImage, StyledCard, ResultLink } from "../styles";
 
@@ -9,14 +10,28 @@ function SearchCard({
   hidden,
   image,
 }: SearchCardProps) {
+  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const displayText = isExpanded
+    ? description
+    : `${description.substring(0, 200)}...`;
+
+  const toggleFullScreen = () => {
+    setIsFullScreen(!isFullScreen);
+  };
+
   return (
     <StyledCard key={id}>
       {!hidden && (
         <>
-          <CardImage src={image} alt={name} />
+          <CardImage src={image} alt={name} onClick={toggleFullScreen} />
           <ResultLink>{url}</ResultLink>
           <h1>{name}</h1>
-          <CardContent>{description}</CardContent>
+          <CardContent onClick={() => setIsExpanded(!isExpanded)}>
+            {displayText}
+          </CardContent>
+          {/* <span onClick={() => setIsExpanded(!isExpanded)}>{displayText}</span> */}
         </>
       )}
     </StyledCard>
