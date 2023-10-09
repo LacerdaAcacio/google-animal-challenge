@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   html, body {
-    height: 100%;
+    width: 100%;
   }
 
   body {
@@ -10,6 +10,7 @@ export default createGlobalStyle`
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #f1f1f1;
+    min-height: 100vh;
   }
   
   h1 {
