@@ -1,62 +1,57 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-  :root {
-    --primary-color: #07B0FB;
-    --text-dark: #262626;
-    --text-light: #3F3F3F;
-    --font-family-main: Roboto, Arial, Helvetica, sans-serif;
-  }
-
-  * {
+  /* html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    outline: 0;
-    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+  } */
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
   }
   
-  h1, h2, h3, span, p {
-    font-family: var(--font-family-main);
-    letter-spacing: 0px;
-  }
-
   h1 {
+    color: #202124;
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  input {
+    border-radius: 20px;
     width: 100%;
-    font-size: 1.5rem; 
-    font-weight: 700;
-    text-align: center;
-    color: var(--primary-color);
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
   }
 
-  h2 {
-    font-size: 1.125rem; 
-    font-weight: 600;
-    line-height: 28px;
-    text-align: left;
-    color: var(--text-dark);
-  }
-
-  h3 {
-    color: var(--primary-color);
-    font-size: 0.875rem; 
-    font-weight: 600;
-    line-height: 22px;
-  }
-
-  span {
-    font-size: 0.6875rem;
-    font-weight: 500;
-    line-height: 14px;
-    text-align: left;
-    color: var(--text-light);
-  }
-
-  p {
+  footer {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    font-size: 1rem; 
-    font-weight: 600;
-    line-height: 24px;
-    color: var(--text-light);
+    margin-top: auto;
+    background-color: #e5e5e5;
+    padding: 0.5em 1em;
+  }
+
+  button {
+    background-color: #4285f4;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #2a75f3;
   }
 `;
