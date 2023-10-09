@@ -17,6 +17,7 @@ module.exports = {
   settings: { react: { version: "18.2" }, "import/extensions": [".js", ".jsx", ".ts", ".tsx"], },
   plugins: ["react-refresh", "prettier", "import" ],
   rules: {
+    "react/jsx-props-no-spreading": "off",
     "prettier/prettier": "error",
     "react-refresh/only-export-components": [
       "warn",
