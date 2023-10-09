@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "react-query";
 import GlobalStyle from "./styles/global.js";
 import App from "./App.js";
+import HiddenSearchProvider from "./contexts/HiddenSearchProvider/index.js";
 
 const rootElement = document.getElementById("root");
 
@@ -16,8 +17,10 @@ const queryClient = new QueryClient();
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <GlobalStyle />
-      <App />
+      <HiddenSearchProvider>
+        <GlobalStyle />
+        <App />
+      </HiddenSearchProvider>
     </QueryClientProvider>
   </React.StrictMode>,
 );
