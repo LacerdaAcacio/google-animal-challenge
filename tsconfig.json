@@ -4,11 +4,12 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "target": "es2016",
-    "lib": ["es2018", "dom"],
+    "lib": ["es2019", "dom"],
 
     /* Modules */
     "module": "commonjs",
     "esModuleInterop": true,
+    "moduleResolution": "Node",
     "forceConsistentCasingInFileNames": true,
 
     /* Type Checking */
