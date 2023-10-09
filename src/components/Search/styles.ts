@@ -2,24 +2,15 @@ import { CgMenuGridO } from "react-icons/cg";
 import { styled } from "styled-components";
 
 export const SearchResultContainer = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  flex: 6;
-  /* align-items: center; */
-  /* justify-content: flex-start; */
   padding: 10px 0;
   border-bottom: 1px solid #e0e0e0;
 `;
 
 export const Card = styled.div`
   display: flex;
-  /* flex-direction: column; */
   flex: 4;
-  /* align-items: center; */
   justify-content: flex-end;
 `;
-
-//-------------------------------------------
 
 export const StyledContainer = styled.div`
   width: 800px;
@@ -38,7 +29,6 @@ export const StyledHeader = styled.div`
 
 export const StyledSearchInput = styled.input`
   padding: 5px 10px;
-  /* width: 70%; */
   border: 1px solid #dcdcdc;
   border-radius: 20px;
   outline: none;
@@ -96,9 +86,6 @@ export const CardContent = styled.div`
 
 export const StyledAppsIcon = styled(CgMenuGridO)`
   margin-left: auto;
-  /* margin-right: 0; */
-  /* display: flex;
-  justify-self: flex-end; */
   width: 24px;
   height: 24px;
   color: #5f6368;

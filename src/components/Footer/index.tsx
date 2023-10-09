@@ -8,16 +8,8 @@ function Footer({
 }: FooterProps) {
   const copyright = showCopyRight ? "©" : "";
   return (
-    // <footer {...footerProps}>
-    //   <p>
-    //     {copyright} {label} {version}
-    //   </p>
-    // </footer>
     <footer {...footerProps}>
-      <div>
-        {/* {copyright} */}
-        {`${copyright}${label}`}
-      </div>
+      <div>{`${copyright}${label}`}</div>
       <div>{version}</div>
     </footer>
   );

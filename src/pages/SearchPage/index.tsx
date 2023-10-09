@@ -4,14 +4,12 @@ import { SearchPageContainer } from "../../styles/styles";
 import SearchResult from "../../components/Search/SearchResult";
 import { AnimalsInfoData } from "../../types/AnimalsInfoData";
 import useHiddenSearch from "../../hooks/contexts/useHiddenSearch";
-// import { useHiddenSearch } from "../../contexts/HiddenSearchContext";
 
 function SearchPage() {
   const location = useLocation();
   const { setHiddenSearch } = useHiddenSearch();
   const filteredAnimals = location?.state?.animalData;
   const hasFilteredAnimals = Boolean(filteredAnimals?.length > 0);
-  // console.log(filteredAnimals);
 
   useEffect(() => {
     setHiddenSearch(false);

@@ -3,19 +3,12 @@ import { StyledAppsIcon, StyledHeader, UserAvatar } from "../Search/styles";
 import Logo from "../Logo";
 import SearchForm from "../Form/SearchForm";
 
-function Header({
-  altAvatar,
-  srcAvatar,
-  hiddenSearch, // ...headerProps
-}: HeaderProps) {
-  // const copyright = showCopyRight ? "©" : "";
-  // const avatar = faker.image.avatar();
+function Header({ altAvatar, srcAvatar, hiddenSearch }: HeaderProps) {
   return (
     <StyledHeader>
       {!hiddenSearch && (
         <>
           <Logo />
-          {/* <StyledSearchInput {...headerProps} /> */}
           <SearchForm hideButton />
         </>
       )}
