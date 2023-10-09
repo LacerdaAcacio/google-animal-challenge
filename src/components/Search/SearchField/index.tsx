@@ -1,6 +1,7 @@
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 import { StyledSearchInput } from "../styles";
 import { SearchFieldProps } from "../../../types/PropsData";
+import { LABELS } from "../../../constants";
 
 function SearchField({ form, handleSearchSubmit }: SearchFieldProps) {
   const watchedSearchValue = form.watch("search");
@@ -11,7 +12,6 @@ function SearchField({ form, handleSearchSubmit }: SearchFieldProps) {
       style={{
         position: "relative",
         display: "inline-block",
-        margin: "25px",
       }}
     >
       <AiOutlineSearch
@@ -36,7 +36,7 @@ function SearchField({ form, handleSearchSubmit }: SearchFieldProps) {
       )}
       <StyledSearchInput
         type="text"
-        placeholder="Pesquise sobre animais"
+        placeholder={LABELS.SEARCH}
         {...form.register("search")}
         style={{
           paddingLeft: "30px",
