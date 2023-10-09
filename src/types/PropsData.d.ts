@@ -1,4 +1,4 @@
-import { AnimalsInfoData } from "./AnimalsInfoData";
+import { AnimalsInfoData } from "./AnimalsInfoData.d";
 
 export interface FooterProps extends CustomFooterProps {
   label?: string;
@@ -39,4 +39,8 @@ export interface SearchFieldProps {
 
 export interface SearchFormDataProps {
   hideButton?: boolean;
+}
+
+export interface SearchResultProps extends AnimalsInfoData {
+  onSelect: (AnimalsInfoData) => void;
 }
