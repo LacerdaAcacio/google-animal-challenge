@@ -43,7 +43,10 @@ const useSearch = () => {
   const handleSearch = (searchValue: string, animals: AnimalList) => {
     const filteredAnimals = filterAnimals(searchValue, animals);
     navigate("/search", {
-      state: { animalData: generateAnimalInfoList(filteredAnimals) },
+      state: {
+        animalData: generateAnimalInfoList(filteredAnimals),
+        searchValue,
+      },
     });
   };
 
