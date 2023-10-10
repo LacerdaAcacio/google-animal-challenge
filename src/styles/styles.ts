@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HomeContainer = styled.div`
+export const StyledHomeContainer = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@ export const HomeContainer = styled.div`
   gap: 15px;
 `;
 
-export const SearchPageContainer = styled.div`
+export const StyledSearchPageContainer = styled.div`
   /* display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@ export const SearchPageContainer = styled.div`
   width: 100%;
 `;
 
-export const UserAvatar = styled.img`
+export const StyledUserAvatar = styled.img`
   width: 32px;
   height: 32px;
   border-radius: 50%;
