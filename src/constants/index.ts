@@ -7,6 +7,10 @@ export const LABELS: LabelsData = {
   ALT_AVATAR: "Avatar",
   LINKEDIN: "LinkedIn",
   MY_LAST_CHALLENGE: "My last challenge",
+  NO_RESULTS: "No results found for",
+  TRY_LOOKING: "Try looking for",
+  ANIMAL_OPTIONS:
+    "insect, fish, horse, crocodilia, bear, cetacean, cow, lion, rabbit, cat, snake, dog, bird",
 };
 
 export const ROUTES: RoutesData = {
