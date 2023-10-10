@@ -2,11 +2,13 @@ import { useForm } from "react-hook-form";
 import useSearch from "../../../hooks/useSearch";
 import SearchField from "../../Search/SearchField";
 import { SearchFormDataProps } from "../../../types/PropsData";
+import { LABELS } from "../../../constants";
 
 function SearchForm({ hideButton, isHeader }: SearchFormDataProps) {
   const { generateAnimalTypeList, handleSearch } = useSearch();
   const form = useForm();
   const animals = generateAnimalTypeList();
+  const { SEARCH } = LABELS;
 
   const handleSearchSubmit = () => {
     handleSearch(form.getValues("search"), animals);
@@ -21,7 +23,7 @@ function SearchForm({ hideButton, isHeader }: SearchFormDataProps) {
       />
       {!hideButton && (
         <button type="submit" onClick={handleSearchSubmit}>
-          Buscar
+          {SEARCH}
         </button>
       )}
     </>

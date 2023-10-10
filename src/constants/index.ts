@@ -1,9 +1,10 @@
 import { LabelsData, RoutesData } from "../types/ConstantsData";
 
 export const LABELS: LabelsData = {
+  SEARCH: "Search",
   FOOTER: "Acacio 2021",
   VERSION: "0.1.0",
-  SEARCH: "Search an animal...",
+  ANIMAL_SEARCH: "Search an animal...",
   ALT_AVATAR: "Avatar",
   LINKEDIN: "LinkedIn",
   MY_LAST_CHALLENGE: "My last challenge",

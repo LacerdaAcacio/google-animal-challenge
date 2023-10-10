@@ -1,7 +1,8 @@
 export interface LabelsData {
+  SEARCH: string;
   FOOTER: string;
   VERSION: string;
-  SEARCH: string;
+  ANIMAL_SEARCH: string;
   ALT_AVATAR: string;
   LINKEDIN: string;
   MY_LAST_CHALLENGE: string;

@@ -20,7 +20,7 @@ function SearchField({ form, handleSearchSubmit, isHeader }: SearchFieldProps) {
       <StyledSearchInput
         isHeader={isHeader}
         type="text"
-        placeholder={LABELS.SEARCH}
+        placeholder={LABELS.ANIMAL_SEARCH}
         {...form.register("search")}
         onKeyDown={(e) => {
           if (e.key === "Enter") {

@@ -19,7 +19,7 @@ function App() {
           srcAvatar={avatar}
           altAvatar={LABELS.ALT_AVATAR}
           type="text"
-          placeholder={`${LABELS.SEARCH}...`}
+          placeholder={`${LABELS.ANIMAL_SEARCH}...`}
           hiddenSearch={hiddenSearch}
         />
         <Routes>
