@@ -60,7 +60,7 @@ export const StyledCard = styled.div`
   gap: 0.5rem;
   width: 100%;
   padding: 1.25rem;
-  background-color: #fff;
+  background-color: #f7f7f7;
   border: 0.0625rem solid #e0e0e0;
   border-radius: 0.5rem;
   box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);

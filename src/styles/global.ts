@@ -9,7 +9,7 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f1f1f1;
+    background-color: #ffffff;
     min-height: 100vh;
   }
   
@@ -37,16 +37,19 @@ export default createGlobalStyle`
   }
 
   button {
-    background-color: #4285f4;
+    background-color: #e5e5e5;
     color: white;
-    padding: 0.75rem 1.5rem;
+    padding: 0.65rem 0.75rem;
     border: none;
     border-radius: 0.25rem;
     cursor: pointer;
     transition: background-color 0.2s;
+    color: #000;
+    font-weight: bold;
+
 
     &:hover {
-      background-color: #2a75f3;
+      background-color: #9c9c9c;
     }
   }
 `;
