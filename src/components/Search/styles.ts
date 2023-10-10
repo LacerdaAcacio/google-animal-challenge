@@ -1,12 +1,11 @@
 import { CgMenuGridO } from "react-icons/cg";
 import { styled } from "styled-components";
 
-// interface StyledCardProps {
-//   isFullScreen: boolean;
-//   isHidden?: boolean;
-// }
+interface StyledSearchInputProps {
+  isHeader?: boolean;
+}
 
-export const SearchResultContainer = styled.div`
+export const StyledSearchResultContainer = styled.div`
   /* width: 60%;
   padding: 10px 0;
   border-bottom: 1px solid #e0e0e0; */
@@ -19,6 +18,8 @@ export const SearchResultContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin: 30px 0;
+  gap: 10px;
   /* margin: 20px; */
 `;
 
@@ -31,14 +32,16 @@ export const SearchResultContainer = styled.div`
 //   max-height: 40px;
 // `;
 
-export const StyledSearchInput = styled.input`
-  padding: 5px 10px;
+export const StyledSearchInput = styled.input<StyledSearchInputProps>`
+  /* padding: 5px 10px; */
+  padding: ${(props) => (props.isHeader ? "5px 10px" : "15px 20px")};
+  font-size: ${(props) => (props.isHeader ? "16px" : "20px")};
   border: 1px solid #dcdcdc;
-  border-radius: 20px;
+  border-radius: ${(props) => (props.isHeader ? "20px" : "30px")};
   outline: none;
 `;
 
-export const ResultTitle = styled.h3`
+export const StyledResultTitle = styled.h3`
   margin: 0;
   color: #1a0dab;
   &:hover {
@@ -47,13 +50,13 @@ export const ResultTitle = styled.h3`
   }
 `;
 
-export const ResultLink = styled.a`
+export const StyledResultLink = styled.a`
   text-decoration: none;
-  color: #006621;
+  color: black;
   font-size: 13px;
 `;
 
-export const ResultDescription = styled.p`
+export const StyledResultDescription = styled.p`
   color: #4d5156;
   font-size: 14px;
 `;
@@ -175,28 +178,48 @@ export const StyledCard = styled.div`
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-
-  /* Ajusta o posicionamento do card se for exibido em tela cheia */
-  /* ${(props) =>
-    props.isFullScreen &&
-    `
+  &.modal {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow-y: auto;
-    z-index: 9999;
-  `} */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: white;
+    max-width: 35%;
+    max-height: 80%;
+    overflow: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 `;
 
-export const CardImage = styled.img`
+export const StyledCloseButton = styled.span`
+  color: #e0e0e0;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+`;
+
+export const StyledOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+`;
+
+export const StyledCardImage = styled.img`
   width: 100%;
   /* height: 160px; */
   margin-right: 10px;
 `;
 
-export const CardContent = styled.div`
+export const StyledCardContent = styled.div`
   flex: 1;
 `;
 
@@ -218,5 +241,20 @@ export const StyledAppsIcon = styled(CgMenuGridO)`
 
   &:active {
     background-color: #e5e5e5;
+  }
+`;
+
+export const StyledNotFoundContainer = styled.div`
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #5f6368;
+  margin-top: 20px;
+  /* height: 100%; */
+  padding-left: 20px;
+
+  b {
+    font-weight: bold;
+    color: #202124;
   }
 `;
