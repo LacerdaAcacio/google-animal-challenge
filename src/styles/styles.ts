@@ -1,29 +1,44 @@
 import styled from "styled-components";
+import { flexCenter } from "./Shared";
 
 export const StyledHomeContainer = styled.div`
   min-height: 100vh;
-  display: flex;
+  ${flexCenter}
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 1rem;
 `;
 
-export const StyledSearchPageContainer = styled.div`
+export const StyledSearchContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  flex-direction: row;
+  height: 100%;
+  padding: 20px;
+`;
+
+export const StyledLeftSection = styled.div`
+  width: 67%;
+`;
+
+export const StyledRightSection = styled.div`
+  width: 30%;
 `;
 
 export const StyledUserAvatar = styled.img`
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
 `;
 
 export const StyledAppContainer = styled.div`
-  display: flex;
+  ${flexCenter}
   flex-direction: column;
   min-height: 100vh;
   height: 100%;
+`;
+
+export const StyledResultLink = styled.a`
+  text-decoration: none;
+  color: black;
+  font-size: 13px;
 `;

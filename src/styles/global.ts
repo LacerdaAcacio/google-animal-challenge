@@ -1,11 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-  html, body {
-    width: 100%;
+  *, *::before, *::after {
+    box-sizing: border-box;
   }
 
-  body {
+  html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -15,16 +15,15 @@ export default createGlobalStyle`
   
   h1 {
     color: #202124;
-    font-size: 24px;
-    margin-bottom: 16px;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
   
   input {
-    border-radius: 20px;
+    border-radius: 1.25rem;
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
+    padding: 0.75rem 1.25rem;
+    margin: 0.5rem 0;
   }
 
   footer {
@@ -33,19 +32,21 @@ export default createGlobalStyle`
     align-items: center;
     margin-top: auto;
     background-color: #e5e5e5;
-    padding: 0.5em 1em;
+    padding: 0.5rem 1.5rem;
+    width: 100%;
   }
 
   button {
     background-color: #4285f4;
     color: white;
-    padding: 12px 24px;
+    padding: 0.75rem 1.5rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     cursor: pointer;
-  }
+    transition: background-color 0.2s;
 
-  button:hover {
-    background-color: #2a75f3;
+    &:hover {
+      background-color: #2a75f3;
+    }
   }
 `;

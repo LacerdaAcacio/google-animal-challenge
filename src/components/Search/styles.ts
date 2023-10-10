@@ -1,57 +1,70 @@
-import { CgMenuGridO } from "react-icons/cg";
-import { styled } from "styled-components";
+import styled from "styled-components";
+import { AiOutlineClose, AiOutlineSearch } from "react-icons/ai";
+import { flexCenter, hoverUnderline, iconStyles } from "../../styles/Shared";
 
 interface StyledSearchInputProps {
   isHeader?: boolean;
 }
 
+export const StyledSearchFieldContainer = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
+export const StyledSearchIcon = styled(AiOutlineSearch)`
+  ${iconStyles};
+  left: 10px;
+`;
+
+export const StyledCloseIcon = styled(AiOutlineClose)`
+  ${iconStyles};
+  right: 10px;
+  cursor: pointer;
+`;
+
 export const StyledSearchResultContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 30px 0;
-  gap: 10px;
+  margin: 1.875rem 0;
+  gap: 0.625rem;
 `;
 
 export const StyledSearchInput = styled.input<StyledSearchInputProps>`
-  padding: ${(props) => (props.isHeader ? "5px 10px" : "15px 20px")};
-  font-size: ${(props) => (props.isHeader ? "16px" : "20px")};
-  border: 1px solid #dcdcdc;
-  border-radius: ${(props) => (props.isHeader ? "20px" : "30px")};
+  padding: ${(props) =>
+    props.isHeader ? "0.3125rem 0.625rem" : "0.9375rem 1.25rem"};
+  font-size: ${(props) => (props.isHeader ? "1rem" : "1.25rem")};
+  border: 0.0625rem solid #dcdcdc;
+  border-radius: ${(props) => (props.isHeader ? "1.25rem" : "1.875rem")};
   outline: none;
+  padding-left: 30px;
+  padding-right: 30px;
 `;
 
 export const StyledResultTitle = styled.h3`
   margin: 0;
   color: #1a0dab;
-  &:hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-`;
-
-export const StyledResultLink = styled.a`
-  text-decoration: none;
-  color: black;
-  font-size: 13px;
+  ${hoverUnderline}
 `;
 
 export const StyledResultDescription = styled.p`
   color: #4d5156;
-  font-size: 14px;
+  font-size: 0.875rem;
 `;
 
 export const StyledCard = styled.div`
-  display: flex;
+  ${flexCenter}
   flex-direction: column;
   justify-content: flex-end;
+  align-items: flex-start;
+  gap: 0.5rem;
   width: 100%;
-  padding: 20px;
+  padding: 1.25rem;
   background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  border: 0.0625rem solid #e0e0e0;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+
   &.modal {
     position: fixed;
     top: 50%;
@@ -60,18 +73,17 @@ export const StyledCard = styled.div`
     z-index: 1000;
     background-color: white;
     max-width: 35%;
-    max-height: 80%;
     overflow: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
   }
 `;
 
 export const StyledCloseButton = styled.span`
   color: #e0e0e0;
   position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
+  top: 0.625rem;
+  right: 0.625rem;
+  font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
   z-index: 1001;
@@ -89,41 +101,20 @@ export const StyledOverlay = styled.div`
 
 export const StyledCardImage = styled.img`
   width: 100%;
-  margin-right: 10px;
+  margin-right: 0.625rem;
 `;
 
 export const StyledCardContent = styled.div`
   flex: 1;
 `;
 
-export const StyledAppsIcon = styled(CgMenuGridO)`
-  margin-left: auto;
-  width: 24px;
-  height: 24px;
-  color: #5f6368;
-  border-radius: 50%;
-  transition:
-    background-color 0.2s,
-    box-shadow 0.2s;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #f5f5f5;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  }
-
-  &:active {
-    background-color: #e5e5e5;
-  }
-`;
-
 export const StyledNotFoundContainer = styled.div`
   display: block;
   font-family: Arial, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   color: #5f6368;
-  margin-top: 20px;
-  padding-left: 20px;
+  margin-top: 1.25rem;
+  padding-left: 1.25rem;
 
   b {
     font-weight: bold;

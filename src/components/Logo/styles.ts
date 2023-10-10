@@ -6,6 +6,14 @@ const StyledLogo = styled(LogoComponent)`
   max-width: 320px;
   margin: 0 auto;
   display: flex;
+
+  @media (max-width: 768px) {
+    max-width: 120px;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 `;
 
 export default StyledLogo;

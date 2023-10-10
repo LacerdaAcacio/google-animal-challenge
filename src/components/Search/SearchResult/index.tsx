@@ -1,11 +1,11 @@
 import { AnimalsInfoData } from "../../../types/AnimalsInfoData";
 import {
   StyledResultDescription,
-  StyledResultLink,
   StyledResultTitle,
   StyledSearchResultContainer,
 } from "../styles";
 import { SearchResultProps } from "../../../types/PropsData";
+import { StyledResultLink } from "../../../styles/styles";
 
 function SearchResult({
   description,

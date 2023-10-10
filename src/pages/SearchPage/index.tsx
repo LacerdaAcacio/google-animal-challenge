@@ -6,6 +6,11 @@ import useHiddenSearch from "../../hooks/contexts/useHiddenSearch";
 import SearchCard from "../../components/Search/SearchCard";
 import ResultNotFound from "../../components/Search/SearchResult/ResultNotFound";
 import { LABELS } from "../../constants";
+import {
+  StyledLeftSection,
+  StyledRightSection,
+  StyledSearchContainer,
+} from "../../styles/styles";
 
 function SearchPage() {
   const location = useLocation();
@@ -15,56 +20,50 @@ function SearchPage() {
     null,
   );
 
-  const filteredAnimals = location?.state?.animalData;
+  const filteredAnimals = location?.state?.animalData || [];
   const searchValue = location?.state?.searchValue;
-  const hasFilteredAnimals = Boolean(filteredAnimals?.length > 0);
-  const hasSearchValue = Boolean(searchValue);
-  const handleSelectResult = (result: AnimalsInfoData) => {
-    setSelectedResult(result);
-  };
+  const hasFilteredAnimals = filteredAnimals.length > 0;
 
   useEffect(() => {
     setHiddenSearch(false);
   }, [setHiddenSearch]);
 
+  const handleSelectResult = (result: AnimalsInfoData) => {
+    setSelectedResult(result);
+  };
+
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          height: "100%",
-          padding: "20px",
-        }}
-      >
-        {hasSearchValue ? (
-          <div style={{ width: "67%" }}>
-            {filteredAnimals.map((filteredAnimal: AnimalsInfoData) => (
+      <StyledSearchContainer>
+        {searchValue ? (
+          <StyledLeftSection>
+            {filteredAnimals.map((animal: AnimalsInfoData) => (
               <SearchResult
-                key={filteredAnimal.id}
-                {...filteredAnimal}
+                key={animal.id}
+                {...animal}
                 onSelect={handleSelectResult}
               />
             ))}
-          </div>
+          </StyledLeftSection>
         ) : (
           <ResultNotFound
             label={LABELS.TRY_LOOKING}
             boldLabel={`'${LABELS.ANIMAL_OPTIONS}'`}
           />
         )}
+
         {selectedResult && (
-          <div style={{ width: "30%" }}>
+          <StyledRightSection>
             <SearchCard {...selectedResult} />
-          </div>
+          </StyledRightSection>
         )}
-      </div>
+      </StyledSearchContainer>
       {!hasFilteredAnimals && (
         <>
           <ResultNotFound
             label={LABELS.NO_RESULTS}
             boldLabel={`'${searchValue}'`}
-          />{" "}
+          />
           <ResultNotFound
             label={LABELS.TRY_LOOKING}
             boldLabel={`'${LABELS.ANIMAL_OPTIONS}'`}

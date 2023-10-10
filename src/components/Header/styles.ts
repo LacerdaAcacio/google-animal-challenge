@@ -1,23 +1,23 @@
 import { CgMenuGridO } from "react-icons/cg";
 import styled from "styled-components";
+import { flexCenter } from "../../styles/Shared";
 
 export const StyledDropdownMenu = styled.div`
   position: absolute;
   top: 100%;
   right: 0;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  border: 0.0625rem solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
   background-color: white;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  min-width: 200px;
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+  min-width: 12.5rem;
   overflow: hidden;
   z-index: 1000;
 `;
 
 export const StyledDropdownItem = styled.a`
-  display: flex;
-  align-items: center;
-  padding: 10px 15px;
+  ${flexCenter}
+  padding: 0.625rem 0.9375rem;
   color: rgba(0, 0, 0, 0.8);
   text-decoration: none;
   transition: background-color 0.2s;
@@ -28,35 +28,39 @@ export const StyledDropdownItem = styled.a`
   }
 
   svg {
-    margin-right: 10px;
+    margin-right: 0.625rem;
   }
 `;
 
+export const StyledDropdownContainer = styled.div`
+  position: relative;
+`;
+
 export const StyledHeader = styled.div`
-  display: flex;
-  align-items: center;
+  ${flexCenter}
   justify-content: space-between;
-  padding: 10px 24px;
-  border-bottom: 1px solid #e0e0e0;
-  max-height: 56px;
+  padding: 0.625rem 1.5rem;
+  border-bottom: 0.0625rem solid #e0e0e0;
+  max-height: 3.5rem;
+  width: 100%;
+  box-sizing: border-box;
 `;
 
 export const StyledLeftGroup = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  ${flexCenter}
+  gap: 1rem;
 `;
 
 export const StyledRightGroup = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  ${flexCenter}
+  gap: 1rem;
   margin-left: auto;
 `;
 
 export const StyledAppsIcon = styled(CgMenuGridO)`
-  width: 24px;
-  height: 24px;
+  margin-left: auto;
+  width: 1.5rem;
+  height: 1.5rem;
   color: #5f6368;
   border-radius: 50%;
   transition:
@@ -66,7 +70,7 @@ export const StyledAppsIcon = styled(CgMenuGridO)`
 
   &:hover {
     background-color: #f5f5f5;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.0625rem 0.0625rem rgba(0, 0, 0, 0.1);
   }
 
   &:active {

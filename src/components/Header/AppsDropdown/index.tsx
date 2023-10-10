@@ -1,44 +1,36 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { StyledAppsIcon } from "../../Search/styles";
 import { LABELS, ROUTES } from "../../../constants";
-import { StyledDropdownItem, StyledDropdownMenu } from "../styles";
+import {
+  StyledAppsIcon,
+  StyledDropdownItem,
+  StyledDropdownMenu,
+  StyledDropdownContainer,
+} from "../styles";
+import useOutsideClick from "../../../hooks/useOutsideClick";
 
 function AppsDropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false);
-      }
-    }
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen]);
+  useOutsideClick(dropdownRef, () => setIsOpen(false));
+
+  const { MY_LINKEDIN, MY_LAST_CHALLENGE } = ROUTES;
 
   return (
-    <div style={{ position: "relative" }} ref={dropdownRef}>
-      <StyledAppsIcon onClick={() => setIsOpen(!isOpen)} />
+    <StyledDropdownContainer ref={dropdownRef}>
+      <StyledAppsIcon onClick={() => setIsOpen((prev: boolean) => !prev)} />
       {isOpen && (
         <StyledDropdownMenu>
           <StyledDropdownItem
-            href={ROUTES.MY_LINKEDIN}
+            href={MY_LINKEDIN}
             target="_blank"
             rel="noopener noreferrer"
           >
             <FaLinkedin /> {LABELS.LINKEDIN}
           </StyledDropdownItem>
           <StyledDropdownItem
-            href={ROUTES.MY_LAST_CHALLENGE}
+            href={MY_LAST_CHALLENGE}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -46,7 +38,7 @@ function AppsDropdown() {
           </StyledDropdownItem>
         </StyledDropdownMenu>
       )}
-    </div>
+    </StyledDropdownContainer>
   );
 }
 

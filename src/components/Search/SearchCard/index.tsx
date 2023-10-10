@@ -4,10 +4,10 @@ import {
   StyledCardContent,
   StyledCardImage,
   StyledCard,
-  StyledResultLink,
   StyledOverlay,
   StyledCloseButton,
 } from "../styles";
+import { StyledResultLink } from "../../../styles/styles";
 
 function SearchCard({
   description,
@@ -24,27 +24,27 @@ function SearchCard({
     ? description
     : `${description.substring(0, 200)}...`;
 
+  const displayModal = isModalOpen ? "modal" : "";
+
+  const toggleExpand = () => setIsExpanded((prev) => !prev);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <>
       {isModalOpen && (
         <>
-          <StyledCloseButton onClick={() => setIsModalOpen(false)}>
-            ×
-          </StyledCloseButton>
-          <StyledOverlay onClick={() => setIsModalOpen(false)} />
+          <StyledCloseButton onClick={closeModal}>×</StyledCloseButton>
+          <StyledOverlay onClick={closeModal} />
         </>
       )}
-      <StyledCard key={id} className={isModalOpen ? "modal" : ""}>
+      <StyledCard key={id} className={displayModal}>
         {!hidden && (
           <>
-            <StyledCardImage
-              src={image}
-              alt={name}
-              onClick={() => setIsModalOpen(true)}
-            />
+            <StyledCardImage src={image} alt={name} onClick={openModal} />
             <StyledResultLink>{url}</StyledResultLink>
             <h1>{name}</h1>
-            <StyledCardContent onClick={() => setIsExpanded(!isExpanded)}>
+            <StyledCardContent onClick={toggleExpand}>
               {displayText}
             </StyledCardContent>
           </>

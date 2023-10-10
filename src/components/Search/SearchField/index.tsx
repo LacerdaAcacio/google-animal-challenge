@@ -1,5 +1,9 @@
-import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
-import { StyledSearchInput } from "../styles";
+import {
+  StyledCloseIcon,
+  StyledSearchFieldContainer,
+  StyledSearchIcon,
+  StyledSearchInput,
+} from "../styles";
 import { SearchFieldProps } from "../../../types/PropsData";
 import { LABELS } from "../../../constants";
 
@@ -8,48 +12,24 @@ function SearchField({ form, handleSearchSubmit, isHeader }: SearchFieldProps) {
   const hasSearchValue = Boolean(watchedSearchValue);
 
   return (
-    <div
-      style={{
-        position: "relative",
-        display: "inline-block",
-      }}
-    >
-      <AiOutlineSearch
-        style={{
-          position: "absolute",
-          left: "10px",
-          top: "50%",
-          transform: "translateY(-50%)",
-        }}
-      />
+    <StyledSearchFieldContainer>
+      <StyledSearchIcon />
       {hasSearchValue && (
-        <AiOutlineClose
-          style={{
-            position: "absolute",
-            right: "10px",
-            top: "50%",
-            transform: "translateY(-50%)",
-            cursor: "pointer",
-          }}
-          onClick={() => form.setValue("search", "")}
-        />
+        <StyledCloseIcon onClick={() => form.setValue("search", "")} />
       )}
       <StyledSearchInput
         isHeader={isHeader}
         type="text"
         placeholder={LABELS.SEARCH}
         {...form.register("search")}
-        style={{
-          paddingLeft: "30px",
-          paddingRight: "30px",
-        }}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             handleSearchSubmit();
           }
         }}
       />
-    </div>
+    </StyledSearchFieldContainer>
   );
 }
+
 export default SearchField;
