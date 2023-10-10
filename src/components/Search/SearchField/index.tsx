@@ -3,7 +3,7 @@ import { StyledSearchInput } from "../styles";
 import { SearchFieldProps } from "../../../types/PropsData";
 import { LABELS } from "../../../constants";
 
-function SearchField({ form, handleSearchSubmit }: SearchFieldProps) {
+function SearchField({ form, handleSearchSubmit, isHeader }: SearchFieldProps) {
   const watchedSearchValue = form.watch("search");
   const hasSearchValue = Boolean(watchedSearchValue);
 
@@ -35,6 +35,7 @@ function SearchField({ form, handleSearchSubmit }: SearchFieldProps) {
         />
       )}
       <StyledSearchInput
+        isHeader={isHeader}
         type="text"
         placeholder={LABELS.SEARCH}
         {...form.register("search")}
