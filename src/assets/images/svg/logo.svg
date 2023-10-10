@@ -1,5 +1,5 @@
 <svg width="190" height="35" xmlns="http://www.w3.org/2000/svg" version="1.1">
-    <text x="95" y="30" font-family="Roboto" font-weight="bold" font-size="40" letter-spacing="5" text-anchor="middle">
+    <text x="90" y="30" font-family="Roboto, Arial" font-weight="bold" font-size="40" letter-spacing="2" text-anchor="middle">
         <tspan fill="#4285F4">A</tspan>
         <tspan fill="#EA4335">C</tspan>
         <tspan fill="#FBBC05">A</tspan>
