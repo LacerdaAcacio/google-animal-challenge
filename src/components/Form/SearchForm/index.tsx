@@ -3,7 +3,7 @@ import useSearch from "../../../hooks/useSearch";
 import SearchField from "../../Search/SearchField";
 import { SearchFormDataProps } from "../../../types/PropsData";
 
-function SearchForm({ hideButton }: SearchFormDataProps) {
+function SearchForm({ hideButton, isHeader }: SearchFormDataProps) {
   const { generateAnimalTypeList, handleSearch } = useSearch();
   const form = useForm();
   const animals = generateAnimalTypeList();
@@ -14,7 +14,11 @@ function SearchForm({ hideButton }: SearchFormDataProps) {
 
   return (
     <>
-      <SearchField form={form} handleSearchSubmit={handleSearchSubmit} />
+      <SearchField
+        form={form}
+        isHeader={isHeader}
+        handleSearchSubmit={handleSearchSubmit}
+      />
       {!hideButton && (
         <button type="submit" onClick={handleSearchSubmit}>
           Buscar
