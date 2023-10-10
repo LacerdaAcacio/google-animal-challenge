@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { SearchCardProps } from "../../../types/PropsData";
-import { CardContent, CardImage, StyledCard, ResultLink } from "../styles";
+import {
+  StyledCardContent,
+  StyledCardImage,
+  StyledCard,
+  StyledResultLink,
+  StyledOverlay,
+  StyledCloseButton,
+} from "../styles";
 
 function SearchCard({
   description,
@@ -10,31 +17,41 @@ function SearchCard({
   hidden,
   image,
 }: SearchCardProps) {
-  const [isFullScreen, setIsFullScreen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const displayText = isExpanded
     ? description
     : `${description.substring(0, 200)}...`;
 
-  const toggleFullScreen = () => {
-    setIsFullScreen(!isFullScreen);
-  };
-
   return (
-    <StyledCard key={id}>
-      {!hidden && (
+    <>
+      {isModalOpen && (
         <>
-          <CardImage src={image} alt={name} onClick={toggleFullScreen} />
-          <ResultLink>{url}</ResultLink>
-          <h1>{name}</h1>
-          <CardContent onClick={() => setIsExpanded(!isExpanded)}>
-            {displayText}
-          </CardContent>
-          {/* <span onClick={() => setIsExpanded(!isExpanded)}>{displayText}</span> */}
+          <StyledCloseButton onClick={() => setIsModalOpen(false)}>
+            ×
+          </StyledCloseButton>
+          <StyledOverlay onClick={() => setIsModalOpen(false)} />
         </>
       )}
-    </StyledCard>
+      <StyledCard key={id} className={isModalOpen ? "modal" : ""}>
+        {!hidden && (
+          <>
+            <StyledCardImage
+              src={image}
+              alt={name}
+              onClick={() => setIsModalOpen(true)}
+            />
+            <StyledResultLink>{url}</StyledResultLink>
+            <h1>{name}</h1>
+            <StyledCardContent onClick={() => setIsExpanded(!isExpanded)}>
+              {displayText}
+            </StyledCardContent>
+            {/* <span onClick={() => setIsExpanded(!isExpanded)}>{displayText}</span> */}
+          </>
+        )}
+      </StyledCard>
+    </>
   );
 }
 
