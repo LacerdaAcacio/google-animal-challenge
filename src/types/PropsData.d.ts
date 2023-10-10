@@ -35,12 +35,19 @@ export interface HandleSearchProps {
 export interface SearchFieldProps {
   form: UseFormMethods<SearchFieldData>;
   handleSearchSubmit: () => void;
+  isHeader?: boolean;
 }
 
 export interface SearchFormDataProps {
   hideButton?: boolean;
+  isHeader?: boolean;
 }
 
 export interface SearchResultProps extends AnimalsInfoData {
   onSelect: (AnimalsInfoData) => void;
+}
+
+export interface NotFoundProps {
+  label: string;
+  boldLabel: string;
 }
