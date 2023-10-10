@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import { StyledSearchPageContainer } from "../../styles/styles";
 import SearchResult from "../../components/Search/SearchResult";
 import { AnimalsInfoData } from "../../types/AnimalsInfoData";
 import useHiddenSearch from "../../hooks/contexts/useHiddenSearch";
@@ -25,21 +24,9 @@ function SearchPage() {
   };
 
   useEffect(() => {
-    // console.log(location);
     setHiddenSearch(false);
   }, [setHiddenSearch]);
 
-  // return (
-  //   <StyledSearchPageContainer>
-  //     {hasFilteredAnimals ? (
-  //       filteredAnimals.map((filteredAnimal: AnimalsInfoData) => {
-  //         return <SearchResult key={filteredAnimal.id} {...filteredAnimal} />;
-  //       })
-  //     ) : (
-  //       <h1>No results found</h1>
-  //     )}
-  //   </StyledSearchPageContainer>
-  // );
   return (
     <>
       <div
@@ -51,7 +38,7 @@ function SearchPage() {
         }}
       >
         {hasSearchValue ? (
-          <div style={{ width: "65%" }}>
+          <div style={{ width: "67%" }}>
             {filteredAnimals.map((filteredAnimal: AnimalsInfoData) => (
               <SearchResult
                 key={filteredAnimal.id}
@@ -66,9 +53,7 @@ function SearchPage() {
             boldLabel={`'${LABELS.ANIMAL_OPTIONS}'`}
           />
         )}
-        {/* Parte superior com o card selecionado */}
         {selectedResult && (
-          // <div style={{ flexGrow: 4 }}>
           <div style={{ width: "30%" }}>
             <SearchCard {...selectedResult} />
           </div>

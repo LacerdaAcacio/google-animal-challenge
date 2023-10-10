@@ -47,7 +47,6 @@ function SearchCard({
             <StyledCardContent onClick={() => setIsExpanded(!isExpanded)}>
               {displayText}
             </StyledCardContent>
-            {/* <span onClick={() => setIsExpanded(!isExpanded)}>{displayText}</span> */}
           </>
         )}
       </StyledCard>

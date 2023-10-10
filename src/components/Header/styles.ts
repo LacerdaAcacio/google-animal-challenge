@@ -39,7 +39,6 @@ export const StyledHeader = styled.div`
   padding: 10px 24px;
   border-bottom: 1px solid #e0e0e0;
   max-height: 56px;
-  /* width: 100%; */
 `;
 
 export const StyledLeftGroup = styled.div`
