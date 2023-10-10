@@ -1,10 +1,12 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import { SearchPageContainer } from "../../styles/styles";
+// import { StyledSearchPageContainer } from "../../styles/styles";
 import SearchResult from "../../components/Search/SearchResult";
 import { AnimalsInfoData } from "../../types/AnimalsInfoData";
 import useHiddenSearch from "../../hooks/contexts/useHiddenSearch";
 import SearchCard from "../../components/Search/SearchCard";
+import ResultNotFound from "../../components/Search/SearchResult/ResultNotFound";
+import { LABELS } from "../../constants";
 
 function SearchPage() {
   const location = useLocation();
@@ -15,18 +17,20 @@ function SearchPage() {
   );
 
   const filteredAnimals = location?.state?.animalData;
-  // const hasFilteredAnimals = Boolean(filteredAnimals?.length > 0);
-
+  const searchValue = location?.state?.searchValue;
+  const hasFilteredAnimals = Boolean(filteredAnimals?.length > 0);
+  const hasSearchValue = Boolean(searchValue);
   const handleSelectResult = (result: AnimalsInfoData) => {
     setSelectedResult(result);
   };
 
   useEffect(() => {
+    // console.log(location);
     setHiddenSearch(false);
   }, [setHiddenSearch]);
 
   // return (
-  //   <SearchPageContainer>
+  //   <StyledSearchPageContainer>
   //     {hasFilteredAnimals ? (
   //       filteredAnimals.map((filteredAnimal: AnimalsInfoData) => {
   //         return <SearchResult key={filteredAnimal.id} {...filteredAnimal} />;
@@ -34,36 +38,55 @@ function SearchPage() {
   //     ) : (
   //       <h1>No results found</h1>
   //     )}
-  //   </SearchPageContainer>
+  //   </StyledSearchPageContainer>
   // );
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        height: "100%",
-        padding: "20px",
-      }}
-    >
-      {/* Parte inferior com os resultados */}
-      {/* <div style={{ flexGrow: 6 }}> */}
-      <div style={{ width: "65%" }}>
-        {filteredAnimals.map((filteredAnimal: AnimalsInfoData) => (
-          <SearchResult
-            key={filteredAnimal.id}
-            {...filteredAnimal}
-            onSelect={handleSelectResult}
+    <>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          height: "100%",
+          padding: "20px",
+        }}
+      >
+        {hasSearchValue ? (
+          <div style={{ width: "65%" }}>
+            {filteredAnimals.map((filteredAnimal: AnimalsInfoData) => (
+              <SearchResult
+                key={filteredAnimal.id}
+                {...filteredAnimal}
+                onSelect={handleSelectResult}
+              />
+            ))}
+          </div>
+        ) : (
+          <ResultNotFound
+            label={LABELS.TRY_LOOKING}
+            boldLabel={`'${LABELS.ANIMAL_OPTIONS}'`}
           />
-        ))}
+        )}
+        {/* Parte superior com o card selecionado */}
+        {selectedResult && (
+          // <div style={{ flexGrow: 4 }}>
+          <div style={{ width: "30%" }}>
+            <SearchCard {...selectedResult} />
+          </div>
+        )}
       </div>
-      {/* Parte superior com o card selecionado */}
-      {selectedResult && (
-        // <div style={{ flexGrow: 4 }}>
-        <div style={{ width: "30%" }}>
-          <SearchCard {...selectedResult} />
-        </div>
+      {!hasFilteredAnimals && (
+        <>
+          <ResultNotFound
+            label={LABELS.NO_RESULTS}
+            boldLabel={`'${searchValue}'`}
+          />{" "}
+          <ResultNotFound
+            label={LABELS.TRY_LOOKING}
+            boldLabel={`'${LABELS.ANIMAL_OPTIONS}'`}
+          />
+        </>
       )}
-    </div>
+    </>
   );
 }
 
