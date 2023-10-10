@@ -1,10 +1,10 @@
 // import { useState } from "react";
 import { AnimalsInfoData } from "../../../types/AnimalsInfoData";
 import {
-  ResultDescription,
-  ResultLink,
-  ResultTitle,
-  SearchResultContainer,
+  StyledResultDescription,
+  StyledResultLink,
+  StyledResultTitle,
+  StyledSearchResultContainer,
 } from "../styles";
 // import SearchCard from "../SearchCard";
 import { SearchResultProps } from "../../../types/PropsData";
@@ -26,12 +26,14 @@ function SearchResult({
 
   return (
     <>
-      <SearchResultContainer key={id}>
-        <ResultLink>{url}</ResultLink>
-        {/* <ResultTitle onClick={handleCardInfo}>{name}</ResultTitle> */}
-        <ResultTitle onClick={() => onSelect(props)}>{name}</ResultTitle>
-        <ResultDescription>{description}</ResultDescription>
-      </SearchResultContainer>
+      <StyledSearchResultContainer key={id}>
+        <StyledResultLink>{url}</StyledResultLink>
+        {/* <StyledResultTitle onClick={handleCardInfo}>{name}</StyledResultTitle> */}
+        <StyledResultTitle onClick={() => onSelect(props)}>
+          {name}
+        </StyledResultTitle>
+        <StyledResultDescription>{description}</StyledResultDescription>
+      </StyledSearchResultContainer>
       {/* <SearchCard
         description={description}
         name={name}
